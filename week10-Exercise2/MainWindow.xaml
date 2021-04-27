@@ -1,0 +1,33 @@
+﻿<Window x:Class="week10_Exercise2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:week10_Exercise2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" >
+    <Window.Resources>
+
+        <DataTemplate x:Key="ComputerGamesLbxTemplate">
+            <StackPanel Orientation="Horizontal">
+
+                <TextBlock Text="{Binding Path=ComputerGameName}" FontSize="20" Margin="10" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="CharactersLbxTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{Binding Path=characterImage}" Height="100" Width="100" />
+                <TextBlock Text="{Binding Path=Name}" FontSize="20" Margin="10" />
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <ListBox ItemTemplate="{StaticResource ComputerGamesLbxTemplate}" x:Name="ComputerGamesLbx" HorizontalAlignment="Left" Height="302" Margin="44,62,0,0" VerticalAlignment="Top" Width="333" SelectionChanged="ComputerGamesLbx_SelectionChanged" />
+        <ListBox ItemTemplate="{StaticResource CharactersLbxTemplate}" x:Name="CharactersLbx" HorizontalAlignment="Left" Height="302" Margin="460,62,0,0" VerticalAlignment="Top" Width="272"/>
+        <Label Content="ComputerGame" HorizontalAlignment="Left" Margin="138,29,0,0" VerticalAlignment="Top"/>
+        <Label Content="Character" HorizontalAlignment="Left" Margin="547,29,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
